@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Prisma</title>
+	<meta name="ad.size" content="width=800,height=600">
+	<meta name="old.GCD" content=""/>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;1,400;1,500&display=swap');
+		body{
+			margin: 0;
+		}
+		#bannerAnimado{
+			width:800px; height: 600px; background-color: #FFFFFF; margin: 0 auto; position: relative; overflow: hidden; font-family: 'Rubik', sans-serif; font-style: italic; font-weight: 400; background: url(bg.jpg) no-repeat center; background-size: cover; color: white;
+		}
+		#borde{
+			width: calc(100% - 2px); height: calc(100% - 2px); border: 1px solid #CCCCCC; position: absolute;top: 0; left: 0; z-index: 100; cursor: pointer;
+		}
+		#halo{
+			width: inherit;
+		    height: inherit;
+		    position: absolute;
+		    top: 68%;
+		    left: 0;
+		    z-index: 90; 
+
+			-webkit-animation: 9s forwards placeholder-flash linear;
+          	animation: 9s forwards placeholder-flash linear;
+			-webkit-clip-path: url(#clip-path);
+					clip-path: url(#clip-path);
+			height: 110px;
+			background: linear-gradient(to left, #00b1b5 0%, #1d4484 16%, #e61d55 33%, #ffd600 49%, #e61d55 66%, #1d4484 83%, #00b1b5 100%);
+			background-size: 1600px 104px;
+			
+		}
+		#cuadro1{
+			width: 570px; height: 160px; 
+			position: absolute; 
+			top:150px; 
+			left: calc(50% - 570px/2);
+			z-index: 0;
+			background: rgb(2,62,133);
+			background: linear-gradient(90deg, rgba(2,62,133,0.8884147408963585) 0%, rgba(2,62,133,0.5354735644257703) 100%);
+			font-size: 34px; line-height: 41px; display: flex; 
+			align-items: center; 
+			justify-content: center;
+			
+			-webkit-border-top-right-radius: 20px;
+			-webkit-border-bottom-left-radius: 20px;
+			-moz-border-radius-topright: 20px;
+			-moz-border-radius-bottomleft: 20px;
+			border-top-right-radius: 20px;
+			border-bottom-left-radius: 20px;
+
+			animation-delay: 3s;
+
+			-webkit-animation: fadeOut 1s ease 3s 1 forwards;
+			   -moz-animation: fadeOut 1s ease 3s 1 forwards;
+			        animation: fadeOut 1s ease 3s 1 forwards; 
+
+		}
+		#logo{
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			z-index: 0;
+			width: inherit; height: inherit; 
+			background: url(logo.png) no-repeat center 420px;
+
+		}
+		#items{
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			z-index: 0;
+			opacity: 0;
+			width: inherit; height: inherit; 
+			background: url(items.png) no-repeat center 77px;
+
+			-webkit-animation: fadeIn 1s ease 3s 1 forwards;
+			   -moz-animation: fadeIn 1s ease 3s 1 forwards;
+			        animation: fadeIn 1s ease 3s 1 forwards; 
+
+
+		}
+		#placa{
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			z-index: 0;
+			opacity: 0;
+			width: inherit; height: inherit; 
+			background: rgb(0,71,140);
+			background: linear-gradient(180deg, rgba(0,71,140,1) 0%, rgba(2,62,133,1) 100%);
+
+			-webkit-animation: fadeIn 1s ease 7s 1 forwards;
+			   -moz-animation: fadeIn 1s ease 7s 1 forwards;
+			        animation: fadeIn 1s ease 7s 1 forwards; 
+		}
+		#logo2{
+			position: absolute; 
+			bottom: 0; 
+			left: 0;
+			z-index: 0;
+			opacity: 0;
+			width: inherit; height: inherit; 
+			background: url(logo.png) no-repeat center 0px;
+			background-size: 62%;
+
+			-webkit-animation: fadeIn 1s ease 7s 1 forwards;
+			   -moz-animation: fadeIn 1s ease 7s 1 forwards;
+			        animation: fadeIn 1s ease 7s 1 forwards; 
+		}
+		#txt{
+			position: absolute; 
+			top: 270px; 
+			left: 0;
+			z-index: 0;
+			opacity: 0;
+			width: inherit; 
+			font-style: normal;
+			font-weight: 300;
+			font-size: 37px;
+			text-align: center;
+
+			-webkit-animation: fadeIn 1s ease 7s 1 forwards;
+			   -moz-animation: fadeIn 1s ease 7s 1 forwards;
+			        animation: fadeIn 1s ease 7s 1 forwards; 
+		}
+		#boton{
+			background-color: #00B5B6; 
+			width:230px; 
+			height: 53px;
+			line-height: 53px;  
+			text-align: center; 
+			font-size: 23px; 
+			bottom: 40px;
+			left: calc(50% - 230px/2); 
+			position: absolute; 
+			border-radius: 30px;
+			opacity: 0;
+			font-style: normal;
+			font-weight: 500;
+
+			-webkit-animation: fadeIn 1s ease 7s 1 forwards;
+			   -moz-animation: fadeIn 1s ease 7s 1 forwards;
+			        animation: fadeIn 1s ease 7s 1 forwards; 
+		}
+
+		@-webkit-keyframes fadeIn{ 0%{opacity:0;} 100%{opacity:1;}}
+		   @-moz-keyframes fadeIn{ 0%{opacity:0;} 100%{opacity:1;}}
+		        @keyframes fadeIn{ 0%{opacity:0;} 100%{opacity:1;}}
+
+		@-webkit-keyframes fadeOut{ 0%{opacity:1;} 100%{opacity:0;}}
+		   @-moz-keyframes fadeOut{ 0%{opacity:1;} 100%{opacity:0;}}
+		        @keyframes fadeOut{ 0%{opacity:1;} 100%{opacity:0;}}
+
+		@-webkit-keyframes placeholder-flash {0% {background-position: 800px 0;} 100% {background-position: -800px 0;}}
+		   @-moz-keyframes placeholder-flash {0% {background-position: 800px 0;} 100% {background-position: -800px 0;}}
+		        @keyframes placeholder-flash {0% {background-position: 800px 0;} 100% {background-position: -800px 0;}}
+
+	</style>
+</head>
+<body>
+	<div id="bannerAnimado">
+		<div id="borde"></div>
+		<div id="logo"></div>
+		<div id="halo">
+
+
+			<svg height="0" width="0" aria-hidden="true">
+				<defs>
+					 <clipPath id="clip-path" clipPathUnits="objectBoundingBox">
+						 <path d="M0.917,0.625 l-0.001,0 h-0.001 c-0.001,0,-0.055,0.005,-0.114,-0.216 c-0.01,-0.039,-0.02,-0.076,-0.029,-0.112 c-0.039,-0.154,-0.069,-0.276,-0.128,-0.295 c-0.036,-0.011,-0.104,0.039,-0.309,0.524 c-0.099,0.234,-0.192,0.166,-0.253,0.067 C0.048,0.536,0.019,0.465,0,0.408 v0.337 c0.019,0.051,0.044,0.108,0.072,0.155 c0.033,0.054,0.075,0.1,0.122,0.1 s0.099,-0.045,0.153,-0.172 c0.154,-0.363,0.248,-0.525,0.296,-0.511 c0.05,0.015,0.074,0.112,0.111,0.259 c0.009,0.037,0.019,0.075,0.03,0.116 c0.065,0.244,0.124,0.249,0.132,0.248 c0.006,0.002,0.044,0.007,0.085,-0.124 V0.465 c-0.04,0.173,-0.083,0.16,-0.083,0.16">
+						 </path>
+					</clipPath>
+				</defs>
+			</svg>
+		</div>
+		<div id="cuadro1">
+			Soluciones para tu comercio <br>
+			que te solucionan la vida.
+		</div>
+		<div id="items"></div>
+		<div id="placa"></div>
+		<div id="logo2"></div>
+		<div id="txt">junto a vos y tu negocio</div>
+		<div id="boton">CONOC&Eacute; M&Aacute;S</div>
+	</div>
+	<div style = 'position: fixed; width: 100%; height: 100%; top: 0; overflow: hidden; z-index: 98;display: block; cursor:pointer' onclick="adcase_click()" ></div>
+	<script>function adcase_click() { window.top.postMessage({ msg: 'adcase_click', format:'html5' }, '*'); window.open(clickTag, '_blank')}</script>
+	<script>var clickTag = 'https://www.payway.com.ar/?utm_source=la_nacion&utm_medium=cpm&utm_campaign=dp_la_nacion_brand_awa_20220829_branding&utm_content=he_desktop_html5_generico_800x600';</script>
+	<script data-exports-type='dclk-quick-preview'>if(typeof studio !== 'undefined' && studio.Enabler) { studio.Enabler.setRushSimulatedLocalEvents(true); }</script>
+</body>
+</html>
